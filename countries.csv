@@ -1,0 +1,196 @@
+country_id,iso_alpha2,iso_alpha3,country_name,region_id,continent
+1,AF,AFG,Afghanistan,13,Asia
+2,AL,ALB,Albania,15,Europe
+3,DZ,DZA,Algeria,3,Africa
+4,AD,AND,Andorra,18,Europe
+5,AO,AGO,Angola,1,Africa
+6,AG,ATG,Antigua and Barbuda,6,Americas
+7,AR,ARG,Argentina,9,Americas
+8,AM,ARM,Armenia,10,Asia
+9,AU,AUS,Australia,19,Oceania
+10,AT,AUT,Austria,18,Europe
+11,AZ,AZE,Azerbaijan,10,Asia
+12,BS,BHS,Bahamas,6,Americas
+13,BH,BHR,Bahrain,14,Asia
+14,BD,BGD,Bangladesh,13,Asia
+15,BB,BRB,Barbados,6,Americas
+16,BY,BLR,Belarus,15,Europe
+17,BE,BEL,Belgium,18,Europe
+18,BZ,BLZ,Belize,7,Americas
+19,BJ,BEN,Benin,5,Africa
+20,BT,BTN,Bhutan,13,Asia
+21,BO,BOL,Bolivia,9,Americas
+22,BA,BIH,Bosnia and Herzegovina,15,Europe
+23,BW,BWA,Botswana,4,Africa
+24,BR,BRA,Brazil,9,Americas
+25,BN,BRN,Brunei,12,Asia
+26,BG,BGR,Bulgaria,15,Europe
+27,BF,BFA,Burkina Faso,5,Africa
+28,BI,BDI,Burundi,1,Africa
+29,CV,CPV,Cabo Verde,5,Africa
+30,KH,KHM,Cambodia,12,Asia
+31,CM,CMR,Cameroon,1,Africa
+32,CA,CAN,Canada,8,Americas
+33,CF,CAF,Central African Republic,1,Africa
+34,TD,TCD,Chad,1,Africa
+35,CL,CHL,Chile,9,Americas
+36,CN,CHN,China,11,Asia
+37,CO,COL,Colombia,9,Americas
+38,KM,COM,Comoros,4,Africa
+39,CD,COD,"Congo, Dem. Rep.",1,Africa
+40,CG,COG,"Congo, Rep.",1,Africa
+41,CR,CRI,Costa Rica,7,Americas
+42,HR,HRV,Croatia,15,Europe
+43,CU,CUB,Cuba,6,Americas
+44,CY,CYP,Cyprus,17,Europe
+45,CZ,CZE,Czech Republic,15,Europe
+46,CI,CIV,Côte d'Ivoire,5,Africa
+47,DK,DNK,Denmark,16,Europe
+48,DJ,DJI,Djibouti,2,Africa
+49,DM,DMA,Dominica,6,Americas
+50,DO,DOM,Dominican Republic,6,Americas
+51,EC,ECU,Ecuador,9,Americas
+52,EG,EGY,Egypt,3,Africa
+53,SV,SLV,El Salvador,7,Americas
+54,GQ,GNQ,Equatorial Guinea,1,Africa
+55,ER,ERI,Eritrea,2,Africa
+56,EE,EST,Estonia,16,Europe
+57,ET,ETH,Ethiopia,2,Africa
+58,FJ,FJI,Fiji,20,Oceania
+59,FI,FIN,Finland,16,Europe
+60,FR,FRA,France,18,Europe
+61,GA,GAB,Gabon,1,Africa
+62,GM,GMB,Gambia,5,Africa
+63,GE,GEO,Georgia,10,Asia
+64,DE,DEU,Germany,18,Europe
+65,GH,GHA,Ghana,5,Africa
+66,GR,GRC,Greece,17,Europe
+67,GD,GRD,Grenada,6,Americas
+68,GT,GTM,Guatemala,7,Americas
+69,GN,GIN,Guinea,5,Africa
+70,GW,GNB,Guinea-Bissau,5,Africa
+71,GY,GUY,Guyana,9,Americas
+72,HT,HTI,Haiti,6,Americas
+73,HN,HND,Honduras,7,Americas
+74,HU,HUN,Hungary,15,Europe
+75,IS,ISL,Iceland,16,Europe
+76,IN,IND,India,13,Asia
+77,ID,IDN,Indonesia,12,Asia
+78,IR,IRN,Iran,14,Asia
+79,IQ,IRQ,Iraq,14,Asia
+80,IE,IRL,Ireland,18,Europe
+81,IL,ISR,Israel,14,Asia
+82,IT,ITA,Italy,17,Europe
+83,JM,JAM,Jamaica,6,Americas
+84,JP,JPN,Japan,11,Asia
+85,JO,JOR,Jordan,14,Asia
+86,KZ,KAZ,Kazakhstan,10,Asia
+87,KE,KEN,Kenya,2,Africa
+88,KI,KIR,Kiribati,21,Oceania
+89,KP,PRK,"Korea, DPR",11,Asia
+90,KR,KOR,"Korea, Rep.",11,Asia
+91,KW,KWT,Kuwait,14,Asia
+92,KG,KGZ,Kyrgyzstan,10,Asia
+93,LA,LAO,Laos,12,Asia
+94,LV,LVA,Latvia,16,Europe
+95,LB,LBN,Lebanon,14,Asia
+96,LS,LSO,Lesotho,4,Africa
+97,LR,LBR,Liberia,5,Africa
+98,LY,LBY,Libya,3,Africa
+99,LI,LIE,Liechtenstein,18,Europe
+100,LT,LTU,Lithuania,16,Europe
+101,LU,LUX,Luxembourg,18,Europe
+102,MG,MDG,Madagascar,4,Africa
+103,MW,MWI,Malawi,4,Africa
+104,MY,MYS,Malaysia,12,Asia
+105,MV,MDV,Maldives,13,Asia
+106,ML,MLI,Mali,5,Africa
+107,MT,MLT,Malta,17,Europe
+108,MH,MHL,Marshall Islands,21,Oceania
+109,MR,MRT,Mauritania,3,Africa
+110,MU,MUS,Mauritius,4,Africa
+111,MX,MEX,Mexico,7,Americas
+112,FM,FSM,Micronesia (Federated States of),21,Oceania
+113,MD,MDA,Moldova,15,Europe
+114,MC,MCO,Monaco,17,Europe
+115,MN,MNG,Mongolia,11,Asia
+116,ME,MNE,Montenegro,15,Europe
+117,MA,MAR,Morocco,3,Africa
+118,MZ,MOZ,Mozambique,4,Africa
+119,MM,MMR,Myanmar,12,Asia
+120,NA,NAM,Namibia,4,Africa
+121,NR,NRU,Nauru,21,Oceania
+122,NP,NPL,Nepal,13,Asia
+123,NL,NLD,Netherlands,18,Europe
+124,NZ,NZL,New Zealand,19,Oceania
+125,NI,NIC,Nicaragua,7,Americas
+126,NE,NER,Niger,5,Africa
+127,NG,NGA,Nigeria,5,Africa
+128,MK,MKD,North Macedonia,15,Europe
+129,NO,NOR,Norway,16,Europe
+130,OM,OMN,Oman,14,Asia
+131,PK,PAK,Pakistan,13,Asia
+132,PW,PLW,Palau,21,Oceania
+133,PA,PAN,Panama,7,Americas
+134,PG,PNG,Papua New Guinea,20,Oceania
+135,PY,PRY,Paraguay,9,Americas
+136,PE,PER,Peru,9,Americas
+137,PH,PHL,Philippines,12,Asia
+138,PL,POL,Poland,15,Europe
+139,PT,PRT,Portugal,17,Europe
+140,QA,QAT,Qatar,14,Asia
+141,RO,ROU,Romania,15,Europe
+142,RU,RUS,Russia,15,Europe
+143,RW,RWA,Rwanda,1,Africa
+144,WS,WSM,Samoa,22,Oceania
+145,SM,SMR,San Marino,17,Europe
+146,ST,STP,Sao Tome and Principe,1,Africa
+147,SA,SAU,Saudi Arabia,14,Asia
+148,SN,SEN,Senegal,5,Africa
+149,RS,SRB,Serbia,15,Europe
+150,SC,SYC,Seychelles,4,Africa
+151,SL,SLE,Sierra Leone,5,Africa
+152,SG,SGP,Singapore,12,Asia
+153,SK,SVK,Slovakia,15,Europe
+154,SI,SVN,Slovenia,15,Europe
+155,SB,SLB,Solomon Islands,20,Oceania
+156,SO,SOM,Somalia,2,Africa
+157,ZA,ZAF,South Africa,4,Africa
+158,SS,SSD,South Sudan,2,Africa
+159,ES,ESP,Spain,17,Europe
+160,LK,LKA,Sri Lanka,13,Asia
+161,KN,KNA,St. Kitts and Nevis,6,Americas
+162,LC,LCA,St. Lucia,6,Americas
+163,VC,VCT,St. Vincent and the Grenadines,6,Americas
+164,SD,SDN,Sudan,2,Africa
+165,SR,SUR,Suriname,9,Americas
+166,SE,SWE,Sweden,16,Europe
+167,CH,CHE,Switzerland,18,Europe
+168,SY,SYR,Syria,14,Asia
+169,TJ,TJK,Tajikistan,10,Asia
+170,TZ,TZA,Tanzania,2,Africa
+171,TH,THA,Thailand,12,Asia
+172,TL,TLS,Timor-Leste,12,Asia
+173,TG,TGO,Togo,5,Africa
+174,TO,TON,Tonga,22,Oceania
+175,TT,TTO,Trinidad and Tobago,6,Americas
+176,TN,TUN,Tunisia,3,Africa
+177,TR,TUR,Turkey,14,Asia
+178,TM,TKM,Turkmenistan,10,Asia
+179,TV,TUV,Tuvalu,22,Oceania
+180,UG,UGA,Uganda,2,Africa
+181,UA,UKR,Ukraine,15,Europe
+182,AE,ARE,United Arab Emirates,14,Asia
+183,GB,GBR,United Kingdom,18,Europe
+184,US,USA,United States,8,Americas
+185,UY,URY,Uruguay,9,Americas
+186,UZ,UZB,Uzbekistan,10,Asia
+187,VU,VUT,Vanuatu,20,Oceania
+188,VE,VEN,Venezuela,9,Americas
+189,VN,VNM,Vietnam,12,Asia
+190,YE,YEM,Yemen,14,Asia
+191,ZM,ZMB,Zambia,4,Africa
+192,ZW,ZWE,Zimbabwe,4,Africa
+193,SZ,SWZ,eSwatini,4,Africa
+194,HK,HKG,Hong Kong,11,Asia
+195,TW,TWN,Taiwan,11,Asia
