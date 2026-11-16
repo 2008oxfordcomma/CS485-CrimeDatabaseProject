@@ -1,0 +1,160 @@
+/* Author: Dre Harm
+ * Date: 11/13/26
+ * Note: These styles are being reused from our project in cs410, not trying to reinvent the wheel for a prototype
+*/
+
+:root {
+  --border-color: #1f2937;
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --input-border: #d1d5db;
+  --link-color: #3b82f6;
+  --btn-primary: #1f2937;
+  --btn-hover: #36475f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: white;
+  color: var(--text-primary);
+  font-family: BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+button {
+  cursor: pointer;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.navbar {
+  border-bottom: 2px solid var(--border-color);
+  background: white;
+  flex: none;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  padding: 0.5rem 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--border-color);
+  background: var(--btn-primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav-btn:hover {
+  background: var(--btn-hover);
+}
+
+.main-content {
+  margin: 0 auto;
+  padding: 1.5rem;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.form-error {
+  color: #b91c1c;
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.site-title {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.map-panel {
+  height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  border: 2px solid var(--border-color);
+  background: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#worldMap {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#worldMap path {
+  fill: #f3f4f6;
+  stroke: var(--text-secondary);
+  stroke-width: 0.4;
+}
+
+#worldMap path.in-db {
+  fill: var(--input-border);
+  cursor: pointer;
+}
+
+#worldMap path.in-db.hovered {
+  fill: var(--btn-hover);
+}
+
+.map-popup {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  background: white;
+  border: 2px solid var(--border-color);
+  padding: 0.5rem 0.75rem;
+  font-size: 14px;
+  min-width: 180px;
+}
+
+.popup-name {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.popup-label {
+  color: var(--text-secondary);
+}
+
+.popup-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
