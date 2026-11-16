@@ -1,6 +1,6 @@
 /* Author: Dre Harm
  * Date: 11/13/26
- * Note: These styles are being reused from our project in cs410, not trying to reinvent the wheel for a prototype
+ * Note: These first styles are being reused from our project in cs410, not trying to reinvent the wheel for a prototype
 */
 
 :root {
@@ -76,6 +76,17 @@ button {
 
 .nav-btn:hover {
   background: var(--btn-hover);
+}
+
+a.nav-btn {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.nav-btn.active,
+.nav-btn.active:hover {
+  background: white;
+  color: var(--text-primary);
 }
 
 .main-content {
@@ -157,4 +168,188 @@ button {
 .popup-value {
   font-size: 1.25rem;
   font-weight: 600;
+}
+
+/* The styles from here down are largely reused from a previous project but I renamed them to fit the class and id tags */
+
+.explorer-layout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 1rem 1.5rem;
+  height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+ 
+.explorer-top {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+ 
+.dataset-choice {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border: none;
+  font-size: 14px;
+}
+ 
+.dataset-choice legend {
+  float: left;
+  margin-right: 0.5rem;
+  font-weight: 600;
+}
+ 
+.dataset-choice label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+ 
+.filter-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  overflow-y: auto;
+}
+ 
+.panel-title {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+ 
+.filter-label {
+  margin-bottom: 0.25rem;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+ 
+.filter-select {
+  width: 100%;
+  margin-bottom: 0.9rem;
+  padding: 0.4rem;
+  border: 2px solid var(--input-border);
+  background: white;
+  font-family: inherit;
+  font-size: 14px;
+}
+ 
+.filter-select:focus {
+  outline: none;
+  border-color: var(--border-color);
+}
+ 
+.submit-btn {
+  width: 100%;
+  padding: 0.5rem;
+  border: 2px solid var(--border-color);
+  background: var(--btn-primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+ 
+.submit-btn:hover {
+  background: var(--btn-hover);
+}
+ 
+.reset-link {
+  margin-top: 0.75rem;
+  color: var(--link-color);
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+}
+ 
+.reset-link:hover {
+  text-decoration: underline;
+}
+ 
+.table-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border: 2px solid var(--border-color);
+}
+
+.table-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+ 
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+ 
+.data-table th,
+.data-table td {
+  padding: 0.45rem 0.75rem;
+  border-right: 1px solid var(--input-border);
+  border-bottom: 1px solid var(--input-border);
+  text-align: left;
+  white-space: nowrap;
+}
+ 
+.data-table th:last-child,
+.data-table td:last-child {
+  border-right: none;
+}
+
+.data-table th {
+  position: sticky;
+  top: 0;
+  border-bottom: 2px solid var(--border-color);
+  background: #f3f4f6;
+  font-weight: 600;
+}
+ 
+.data-table tbody tr:hover {
+  background: #f9fafb;
+}
+ 
+.no-results {
+  padding: 2rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+ 
+.pager {
+  flex: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0.75rem;
+  border-top: 2px solid var(--border-color);
+  font-size: 14px;
+}
+ 
+.pager-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.outline-btn {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border: 2px solid var(--border-color);
+  background: white;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+ 
+.outline-btn:hover {
+  background: #f3f4f6;
 }
