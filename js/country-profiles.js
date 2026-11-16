@@ -1,5 +1,6 @@
 
-console.log("Country Profiles JavaScript is running!");
+// Author: Benjamin Nguyen
+// Date: 11/16/26
 
 // ========================================
 // 1. DEMONSTRATION DATA
