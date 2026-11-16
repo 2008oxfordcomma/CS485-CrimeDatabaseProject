@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Benjamin Nguyen">
+
+    <title>Country Profiles | Global Crime Data Explorer</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- Main Navigation -->
+    <header class="main-header">
+
+        <div class="logo">
+            GLOBAL CRIME DATA EXPLORER
+        </div>
+
+        <nav class="main-nav">
+            <a href="crime-aggregation.html">Crime Aggregation</a>
+            <a href="index.html" class="active">Country Profiles</a>
+            <a href="country-comparison.html">Country Comparison</a>
+            <a href="data-explorer.html">Data Explorer</a>
+            <a href="login.html">Login / Signup</a>
+        </nav>
+
+    </header>
+
+    <main class="page-container">
+
+        <!-- Page Heading -->
+        <section class="page-heading">
+            <h1>Country Profiles</h1>
+
+            <p>
+                Explore international crime statistics,
+                organized crime trends, and human trafficking
+                data across different countries.
+            </p>
+        </section>
+
+
+        <!-- Country Selection -->
+        <section class="country-selection">
+
+            <div class="section-heading">
+                <h2>Select a Country</h2>
+
+                <p>
+                    Search and select a country to explore
+                    its available crime statistics.
+                </p>
+            </div>
+
+            <div class="country-search">
+
+                <input
+                    type="text"
+                    id="countrySearch"
+                    placeholder="Search for a country..."
+                >
+
+                <select id="countrySelect">
+                    <option value="">Select a country</option>
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- Region / Country Overview -->
+        <section class="country-overview">
+
+            <div class="section-heading">
+                <h2>Region & Country Overview</h2>
+
+                <p>
+                    General information and organized crime
+                    indicators for the selected country.
+                </p>
+            </div>
+
+            <div class="country-heading">
+
+                <h2 id="countryName">Select a Country</h2>
+
+                <p id="countryRegion">
+                    Country and regional information
+                    will appear here.
+                </p>
+
+            </div>
+
+
+            <!-- Summary Statistics -->
+            <div class="statistics-grid">
+
+                <div class="stat-card">
+                    <h3>Criminality Average</h3>
+                    <p id="criminalityScore">--</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Criminal Markets Average</h3>
+                    <p id="marketsScore">--</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Criminal Actors Average</h3>
+                    <p id="actorsScore">--</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Resilience Average</h3>
+                    <p id="resilienceScore">--</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Organized Crime Trends -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <h2>Organized Crime Trends</h2>
+
+                <p>
+                    Examine changes in criminality and
+                    resilience across available OCI editions.
+                </p>
+
+            </div>
+
+            <div class="charts-grid">
+
+                <div class="chart-card">
+
+                    <h3>Criminality Over Time</h3>
+
+                    <canvas id="criminalityChart"></canvas>
+
+                </div>
+
+                <div class="chart-card">
+
+                    <h3>Resilience Over Time</h3>
+
+                    <canvas id="resilienceChart"></canvas>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Criminal Markets -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <h2>Criminal Markets</h2>
+
+                <p>
+                    Explore the different organized criminal
+                    markets and their respective scores.
+                </p>
+
+            </div>
+
+            <div class="chart-card">
+
+                <h3>Criminal Market Score Distribution</h3>
+
+                <canvas id="marketDistributionChart"></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- Human Trafficking -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <h2>Human Trafficking</h2>
+
+                <p>
+                    Explore patterns in the available
+                    Counter Trafficking Data Collaborative
+                    (CTDC) records.
+                </p>
+
+            </div>
+
+            <div class="chart-card">
+
+                <h3>Victim Records Over Time</h3>
+
+                <canvas id="victimRegistrationChart"></canvas>
+
+            </div>
+
+            <p class="data-disclaimer">
+                CTDC records are anonymized and may not represent
+                all human trafficking cases within a country.
+                They should not be interpreted as national victim totals.
+            </p>
+
+        </section>
+
+
+        <!-- Data Sources -->
+        <section class="dashboard-section data-sources">
+
+            <div class="section-heading">
+
+                <h2>Data Sources & Methodology</h2>
+
+                <p>
+                    The information displayed on this page
+                    is based on the following datasets:
+                </p>
+
+            </div>
+
+            <ul>
+                <li>
+                    <strong>Organized Crime Index (OCI):</strong>
+                    Organized crime criminality, criminal markets,
+                    criminal actors, and resilience indicators.
+                </li>
+
+                <li>
+                    <strong>Counter Trafficking Data Collaborative (CTDC):</strong>
+                    Anonymized human trafficking case records
+                    used to explore available patterns.
+                </li>
+            </ul>
+
+            <p>
+                Data availability and coverage may vary
+                between countries, categories, and editions.
+            </p>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="page-footer">
+
+            <p>
+                Global Crime Data Explorer
+            </p>
+
+            <p>
+                Data sources: Organized Crime Index
+                and Counter Trafficking Data Collaborative.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- Country Profiles JavaScript -->
+    <script src="country-profiles.js"></script>
+
+</body>
+</html>
