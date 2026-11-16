@@ -50,8 +50,8 @@ $svg = str_replace('viewbox=', 'viewBox=', $svg);
             <div class="nav-content">
                 <a class="site-title" href="index.php">Crime Aggreggator</a>
                 <div class="nav-buttons">
-                    <button class="nav-btn">Country Profiles</button>
-                    <button class="nav-btn">Country Comparison</button>
+                    <a class="nav-btn" href="index.html">Country Profiles</a>
+                    <a class="nav-btn" href="country-comparison.html">Country Comparison</a>
                     <a class="nav-btn" href="explorer.php">Data Explorer</a>
                 </div>
                 <button class="nav-btn">Login / Signup</button>
