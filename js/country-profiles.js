@@ -1,120 +1,3 @@
-
-// Author: Benjamin Nguyen
-// Date: 11/16/26
-
-// ========================================
-// 1. DEMONSTRATION DATA
-// Replace these values with MySQL data later.
-// OCI assessment years: 2021, 2023, 2025
-// All numerical values below are illustrative.
-// ========================================
-
-const countryData = {
-    Canada: {
-        region: "Americas",
-        criminality: 4.5,
-        markets: 4.2,
-        actors: 4.8,
-        resilience: 6.9,
-
-        years: [2021, 2023, 2025],
-        criminalityTrend: [4.3, 4.5, 4.5],
-        resilienceTrend: [6.7, 6.8, 6.9],
-
-        marketScores: [5.2, 4.8, 4.1, 6.3, 5.5, 4.7],
-        trafficking: [120, 160, 190]
-    },
-
-    "United States": {
-        region: "Americas",
-        criminality: 5.8,
-        markets: 6.1,
-        actors: 5.5,
-        resilience: 6.4,
-
-        years: [2021, 2023, 2025],
-        criminalityTrend: [5.5, 5.7, 5.8],
-        resilienceTrend: [6.5, 6.4, 6.4],
-
-        marketScores: [6.2, 5.8, 5.1, 7.0, 6.5, 5.7],
-        trafficking: [210, 250, 300]
-    },
-
-    Germany: {
-        region: "Europe",
-        criminality: 4.2,
-        markets: 4.0,
-        actors: 4.4,
-        resilience: 7.2,
-
-        years: [2021, 2023, 2025],
-        criminalityTrend: [4.0, 4.2, 4.2],
-        resilienceTrend: [7.0, 7.1, 7.2],
-
-        marketScores: [4.5, 4.0, 3.8, 4.5, 4.2, 4.0],
-        trafficking: [90, 120, 150]
-    },
-
-    Japan: {
-        region: "Asia",
-        criminality: 3.8,
-        markets: 3.5,
-        actors: 4.1,
-        resilience: 7.8,
-
-        years: [2021, 2023, 2025],
-        criminalityTrend: [3.7, 3.8, 3.8],
-        resilienceTrend: [7.6, 7.7, 7.8],
-
-        marketScores: [3.8, 3.5, 3.2, 3.9, 3.7, 3.5],
-        trafficking: [70, 95, 125]
-    }
-};
-
-
-// ========================================
-// 2. COUNTRY SELECTOR
-// ========================================
-
-const countrySelect = document.getElementById("countrySelect");
-const countrySearch = document.getElementById("countrySearch");
-
-function populateCountries(search = "") {
-
-    const currentSelection = countrySelect.value;
-
-    countrySelect.innerHTML =
-        '<option value="">Select a country</option>';
-
-    Object.keys(countryData)
-        .filter(country =>
-            country.toLowerCase().includes(search.toLowerCase())
-        )
-        .forEach(country => {
-
-            const option = document.createElement("option");
-
-            option.value = country;
-            option.textContent = country;
-
-            countrySelect.appendChild(option);
-        });
-
-    // Preserve the selected country if it is still visible.
-    if (Object.keys(countryData).includes(currentSelection) &&
-        currentSelection.toLowerCase().includes(search.toLowerCase())) {
-
-        countrySelect.value = currentSelection;
-    }
-}
-
-// Filter countries as the user types.
-countrySearch.addEventListener("input", function () {
-    populateCountries(this.value);
-});
-
-
-// ========================================
 // 3. CHART CONFIGURATION
 // ========================================
 
@@ -166,7 +49,7 @@ function createLineChart(id, label, color, isScoreChart = true) {
 
     const canvas = document.getElementById(id);
 
-    if (!canvas) {
+    if (!canvas || !window.Chart) {
         console.error("Chart canvas not found:", id);
         return null;
     }
@@ -231,21 +114,14 @@ const marketCanvas = document.getElementById("marketDistributionChart");
 
 let marketChart = null;
 
-if (marketCanvas) {
+if (marketCanvas && window.Chart) {
 
     marketChart = new Chart(marketCanvas, {
 
         type: "bar",
 
         data: {
-            labels: [
-                "Human Trafficking",
-                "Human Smuggling",
-                "Arms Trafficking",
-                "Drug Trafficking",
-                "Financial Crimes",
-                "Cyber-Dependent Crimes"
-            ],
+            labels: [],
 
             datasets: [{
                 label: "Market Score",
@@ -257,7 +133,8 @@ if (marketCanvas) {
         },
 
         options: {
-            ...getChartOptions(),
+            ...getChartOptions(false),
+            scales: { x: { min: 0, max: 10 } },
 
             indexAxis: "y"
         }
@@ -269,106 +146,57 @@ if (marketCanvas) {
 
 
 // ========================================
-// 6. DISPLAY SELECTED COUNTRY
-// ========================================
+const select = document.getElementById('countrySelect');
+const search = document.getElementById('countrySearch');
+const region = document.getElementById('countryRegion');
+let countries = {};
+let revision = 0;
 
-function displayCountry(country) {
-
-    const data = countryData[country];
-
-    if (!data) {
-        console.error("Country data not found:", country);
-        return;
-    }
-
-    // Update country information.
-    document.getElementById("countryName").textContent = country;
-
-    document.getElementById("countryRegion").textContent =
-        "Region: " + data.region;
-
-    // Update summary statistics.
-    document.getElementById("criminalityScore").textContent =
-        data.criminality.toFixed(1);
-
-    document.getElementById("marketsScore").textContent =
-        data.markets.toFixed(1);
-
-    document.getElementById("actorsScore").textContent =
-        data.actors.toFixed(1);
-
-    document.getElementById("resilienceScore").textContent =
-        data.resilience.toFixed(1);
-
-
-    // Update criminality chart.
-    if (criminalityChart) {
-
-        criminalityChart.data.labels = data.years;
-
-        criminalityChart.data.datasets[0].data =
-            data.criminalityTrend;
-
-        criminalityChart.update();
-    }
-
-
-    // Update resilience chart.
-    if (resilienceChart) {
-
-        resilienceChart.data.labels = data.years;
-
-        resilienceChart.data.datasets[0].data =
-            data.resilienceTrend;
-
-        resilienceChart.update();
-    }
-
-
-    // Update criminal market chart.
-    if (marketChart) {
-
-        marketChart.data.datasets[0].data =
-            data.marketScores;
-
-        marketChart.update();
-    }
-
-
-    // Update trafficking records chart.
-    if (traffickingChart) {
-
-        traffickingChart.data.labels = data.years;
-
-        traffickingChart.data.datasets[0].data =
-            data.trafficking;
-
-        traffickingChart.update();
-    }
-
-    console.log("Displayed country:", country);
+function plot(chart, labels, values) {
+    if (!chart) return;
+    chart.data.labels = labels;
+    chart.data.datasets[0].data = values;
+    chart.update();
 }
 
-
-// ========================================
-// 7. COUNTRY SELECTION
-// ========================================
-
-countrySelect.addEventListener("change", function () {
-
-    if (this.value) {
-        displayCountry(this.value);
+async function showProfile() {
+    const request = ++revision;
+    const country = countries[select.value];
+    const editions = country?.editions ?? [];
+    const latest = editions.at(-1);
+    document.getElementById('countryName').textContent = country?.name ?? 'No matching country';
+    region.textContent = country ? 'Region: ' + (country.region ?? 'N/A') +
+        (latest ? ' · OCI ' + latest.year : ' · No OCI edition available') : '';
+    for (const key of ['criminality', 'markets', 'actors', 'resilience']) {
+        document.getElementById(key + 'Score').textContent = latest?.[key]?.toFixed(2) ?? 'N/A';
     }
-});
+    const years = editions.map(row => row.year);
+    plot(criminalityChart, years, editions.map(row => row.criminality));
+    plot(resilienceChart, years, editions.map(row => row.resilience));
+    plot(marketChart, [], []);
+    plot(traffickingChart, [], []);
+    if (!country) return;
+    try {
+        const {markets, records} = await loadCountryData(country.iso);
+        if (request !== revision) return;
+        plot(marketChart, markets.map(row => row.market_name), markets.map(row => row.score));
+        plot(traffickingChart, records.map(row => row.year), records.map(row => row.total));
+        if (!markets.length) region.textContent += ' · No market scores';
+        if (!records.length) region.textContent += ' · No dated CTDC records';
+    } catch {
+        if (request === revision) region.textContent += ' · Unable to load market and trafficking data.';
+    }
+}
 
-
-// ========================================
-// 8. INITIALIZE PAGE
-// ========================================
-
-populateCountries();
-
-// Display Canada by default.
-countrySelect.value = "Canada";
-
-displayCountry("Canada");
+function filterCountries(preferred) {
+    const matches = Object.values(countries).filter(country =>
+        country.name.toLowerCase().includes(search.value.trim().toLowerCase()));
+    fillCountryList(select, matches, preferred);
+    showProfile();
+}
+select.addEventListener('change', showProfile);
+search.addEventListener('input', () => filterCountries(select.value));
+loadCountryData().then(data => {
+    countries = data;
+    filterCountries(new URLSearchParams(location.search).get('iso') || 'CA');
+}).catch(() => { region.textContent = 'Unable to load countries. Check the database connection.'; });

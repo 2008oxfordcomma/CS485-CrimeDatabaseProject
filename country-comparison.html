@@ -61,22 +61,12 @@
 
                     <div class="country-heading-cell">
                         <label for="countryOne">Country 1</label>
-                        <select id="countryOne">
-                            <option value="Canada">Canada</option>
-                            <option value="United States">United States</option>
-                            <option value="Germany">Germany</option>
-                            <option value="Japan">Japan</option>
-                        </select>
+                        <select id="countryOne"></select>
                     </div>
 
                     <div class="country-heading-cell">
                         <label for="countryTwo">Country 2</label>
-                        <select id="countryTwo">
-                            <option value="United States">United States</option>
-                            <option value="Canada">Canada</option>
-                            <option value="Germany">Germany</option>
-                            <option value="Japan">Japan</option>
-                        </select>
+                        <select id="countryTwo"></select>
                     </div>
                 </div>
 
@@ -91,10 +81,9 @@
 
         </section>
 
+        <div class="chart-card" id="trendCard" hidden><h3>Criminality Over Time</h3><canvas id="comparisonTrend"></canvas></div>
         <p class="comparison-disclaimer">
-            Demonstration values are placeholders. Final comparisons will use
-            the available Organized Crime Index data. Some categories may not
-            have values for every edition or country.
+            Scores use the latest OCI edition shared by both countries. Missing scores appear as N/A.
         </p>
 
     </main>
@@ -104,6 +93,8 @@
         <p>Data source: Organized Crime Index.</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/country-data.js"></script>
     <script src="js/country-comparison.js"></script>
 
 </body>

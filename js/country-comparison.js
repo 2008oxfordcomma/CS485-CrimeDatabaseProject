@@ -1,48 +1,5 @@
-
-// Author: Benjamin Nguyen
-// Date: 11/16/26
-
-// =====================================
-// COUNTRY COMPARISON PAGE
-// Demonstration data only
-// Replace with database values later
-// =====================================
-
-const comparisonData = {
-    "Canada": {
-    region: "Americas",
-    criminality: 4.5,
-    markets: 4.2,
-    actors: 4.8,
-    resilience: 6.9
-    },
-
-    "United States": {
-    region: "Americas",
-    criminality: 5.8,
-    markets: 6.1,
-    actors: 5.5,
-    resilience: 6.4
-    },
-
-    "Germany": {
-    region: "Europe",
-    criminality: 4.2,
-    markets: 4.0,
-    actors: 4.4,
-    resilience: 7.2
-    },
-
-    "Japan": {
-    region: "Asia",
-    criminality: 3.8,
-    markets: 3.5,
-    actors: 4.1,
-    resilience: 7.8
-    }
-};
-
-
+let countries = {};
+let trend;
 // Fields displayed in the comparison table
 const comparisonFields = [
     { label: "Region", key: "region" },
@@ -68,7 +25,7 @@ function formatValue(value) {
     }
 
     if (typeof value === "number") {
-        return value.toFixed(1);
+        return value.toFixed(2);
     }
 
     return value;
@@ -87,13 +44,13 @@ function createComparisonRow(field, firstCountry, secondCountry) {
     const firstValue = document.createElement("div");
     firstValue.className = "comparison-value";
     firstValue.textContent = formatValue(
-        comparisonData[firstCountry]?.[field.key]
+        firstCountry?.[field.key]
     );
 
     const secondValue = document.createElement("div");
     secondValue.className = "comparison-value";
     secondValue.textContent = formatValue(
-        comparisonData[secondCountry]?.[field.key]
+        secondCountry?.[field.key]
     );
 
     row.appendChild(fieldName);
@@ -106,8 +63,26 @@ function createComparisonRow(field, firstCountry, secondCountry) {
 
 // Display comparison data
 function displayComparison() {
-    const firstCountry = countryOne.value;
-    const secondCountry = countryTwo.value;
+    const first = countries[countryOne.value];
+    const second = countries[countryTwo.value];
+    if (!first || !second) return;
+    const year = first.editions.filter(a => second.editions.some(b => b.year === a.year)).at(-1)?.year;
+    const summary = country => ({ region: country.region, ...country.editions.find(row => row.year === year) });
+    const firstCountry = summary(first);
+    const secondCountry = summary(second);
+    document.querySelector('.comparison-note').textContent = year
+        ? 'Comparing OCI scores for ' + year + '.'
+        : 'These countries have no shared OCI edition.';
+    if (trend) {
+        const years = [...new Set([...first.editions, ...second.editions].map(row => row.year))].sort();
+        trend.data.labels = years;
+        trend.data.datasets = [first, second].map((country, i) => ({
+            label: country.name, borderColor: ['#245486', '#ac542e'][i],
+            data: years.map(y => country.editions.find(row => row.year === y)?.criminality ?? null)
+        }));
+        document.getElementById('trendCard').hidden = !years.length;
+        trend.update();
+    }
 
     const searchTerm = comparisonSearch.value.toLowerCase().trim();
 
@@ -137,5 +112,16 @@ countryTwo.addEventListener("change", displayComparison);
 comparisonSearch.addEventListener("input", displayComparison);
 
 
-// Initial display
-displayComparison();
+loadCountryData().then(data => {
+    countries = data;
+    const list = Object.values(data);
+    fillCountryList(countryOne, list, 'CA');
+    fillCountryList(countryTwo, list, list.some(row => row.iso === 'US') ? 'US' : list[1]?.iso);
+    if (!list.length) document.querySelector('.comparison-note').textContent = 'No countries available.';
+    if (window.Chart) trend = new Chart(document.getElementById('comparisonTrend'), {
+        type: 'line', data: {labels: [], datasets: []}, options: {scales: {y: {min: 0, max: 10}}}
+    });
+    displayComparison();
+}).catch(() => {
+    document.querySelector('.comparison-note').textContent = 'Unable to load countries. Check the database connection.';
+});

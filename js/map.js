@@ -124,3 +124,8 @@ map.addEventListener("mouseout", (event) => {
     setHighlight(path.dataset.iso, false);
     popup.hidden = true;
 });
+
+map.addEventListener('click', event => {
+    const path = event.target.closest('path.in-db');
+    if (path) location.href = 'index.html?iso=' + encodeURIComponent(path.dataset.iso);
+});
